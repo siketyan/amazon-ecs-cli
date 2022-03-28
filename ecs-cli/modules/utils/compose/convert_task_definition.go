@@ -138,6 +138,10 @@ func ConvertToTaskDefinition(params ConvertTaskDefParams) (*ecs.TaskDefinition, 
 		Memory:               aws.String(taskDefParams.memory),
 		ExecutionRoleArn:     aws.String(executionRoleArn),
 		PlacementConstraints: placementConstraints,
+		RuntimePlatform: &ecs.RuntimePlatform{
+			CpuArchitecture:       aws.String("ARM64"),
+			OperatingSystemFamily: aws.String("LINUX"),
+		},
 	}
 
 	// Set launch type
